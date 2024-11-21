@@ -1,0 +1,14 @@
+<mat-form-field appearance="fill" class="search-box">
+                                <input matInput vkeyboard placeholder="Search&hellip;" (input)="applyFilter($event.target.value)">
+</mat-form-field>
+							
+	
+applyFilter(filterValue: string): void {
+    // Filter the dataSource using the input value
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    // If the filter is applied, reset the paginator
+    if (this.paginator) {
+      this.paginator.firstPage();
+    }
+  }
